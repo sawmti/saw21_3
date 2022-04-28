@@ -120,3 +120,4 @@ dist
 .pnp.*
 /.idea/
 /wikidataApi/wikidataApi.iml
+/wikidataApi/target/
