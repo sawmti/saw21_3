@@ -1,5 +1,5 @@
-FROM node:12.14.1
-WORKDIR /usr/src/app
-COPY . ./
-RUN npm install --production
-CMD [ "node", "server.js" ]
+FROM openjdk:15-alpine
+ARG JAR_FILE=wikidataAPI/target/*.jar
+COPY ${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
