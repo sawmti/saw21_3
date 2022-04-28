@@ -18,16 +18,17 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn -f wikidataApi/pom.xml --batch-mode --update-snapshots package
-#  deploy-webapp:
-#    needs: [build-test]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
-#        with:
-#          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-#          heroku_app_name: "saw213" # Must exist and be unique in Heroku
-#          heroku_email: "jelabra@gmail.com"
+  deploy-webapp:
+    needs: [build-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_app_name: ${{secrets.HEROKU_APP}}
 #          usedocker: true
 #          docker_build_args: |
 #            API_URI
