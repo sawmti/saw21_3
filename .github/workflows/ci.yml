@@ -36,7 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Maven Package
-        run: mvn -B package -DskipTests -f ./pom.xml
+        run: mvn -B package -DskipTests -f wikidataApi/pom.xml
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
