@@ -13,7 +13,7 @@ public class WikiDataApiAdvice {
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
-    public ErrorResponse onSucursalNotFoundException(EntityNotFoundException e) {
+    public ErrorResponse onEntityNotFoundException(EntityNotFoundException e) {
         ErrorResponse respuestaError = new ErrorResponse();
         respuestaError.getErrores().add(new Error(ErrorCodes.ENTITY_NOT_FOUND, e.getMessage()));
         return respuestaError;
