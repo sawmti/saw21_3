@@ -44,4 +44,10 @@ public class WikiDataEntityService {
         entity.setUpdatedDate(Instant.now().toString());
         return repository.saveAndFlush(entity);
     }
+
+    public void eliminar(String entityId) {
+        if (!repository.existsById(entityId)) throw new EntityNotFoundException(entityId);
+
+        repository.deleteById(entityId);
+    }
 }
