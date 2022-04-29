@@ -8,6 +8,7 @@ import cl.mti.wikidataApi.validation.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
@@ -45,6 +46,7 @@ public class WikiDataEntityService {
         return repository.saveAndFlush(entity);
     }
 
+    @Transactional
     public void eliminar(String entityId) {
         if (!repository.existsById(entityId)) throw new EntityNotFoundException(entityId);
 
