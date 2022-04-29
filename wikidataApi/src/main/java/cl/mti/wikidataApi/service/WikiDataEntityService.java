@@ -8,6 +8,7 @@ import cl.mti.wikidataApi.validation.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,5 +35,13 @@ public class WikiDataEntityService {
 
     public LocalEnt buscar(String entityId) {
         return repository.findById(entityId).orElseThrow(() ->new EntityNotFoundException(entityId));
+    }
+
+    public LocalEnt actualizar(String entityId, LocalEnt entity) {
+        if (!repository.existsById(entityId)) throw new EntityNotFoundException(entityId);
+
+        entity.setId(entityId);
+        entity.setUpdatedDate(Instant.now().toString());
+        return repository.saveAndFlush(entity);
     }
 }

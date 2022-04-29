@@ -29,8 +29,14 @@ public class WikiDataEntityController {
 
     @GetMapping("/{EntityId}")
     public ResponseEntity<LocalEnt> buscar(@PathVariable(value = "EntityId") String entityId){
-        LocalEnt sucursal = service.buscar(entityId);
-        return ResponseEntity.ok(sucursal);
+        LocalEnt localEnt = service.buscar(entityId);
+        return ResponseEntity.ok(localEnt);
+    }
+
+    @PutMapping("/{EntityId}")
+    public ResponseEntity<LocalEnt> actualizar(@PathVariable(value = "EntityId") String entityId, @RequestBody LocalEnt entity){
+        LocalEnt localEnt = service.actualizar(entityId, entity);
+        return ResponseEntity.ok(localEnt);
     }
 
 }
