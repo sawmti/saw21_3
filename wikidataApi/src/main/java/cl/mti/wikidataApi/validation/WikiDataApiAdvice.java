@@ -20,4 +20,22 @@ public class WikiDataApiAdvice {
         respuestaError.getErrores().add(new Error(ErrorCodes.ENTITY_NOT_FOUND, e.getMessage()));
         return respuestaError;
     }
+
+    @ExceptionHandler(WikidataEntityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ErrorResponse onWikidataEntityNotFoundException(WikidataEntityNotFoundException e) {
+        ErrorResponse respuestaError = new ErrorResponse();
+        respuestaError.getErrores().add(new Error(ErrorCodes.WIKIDATA_ENTITY_NOT_FOUND, e.getMessage()));
+        return respuestaError;
+    }
+
+    @ExceptionHandler(WikidataServerException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ErrorResponse onWikidataServerException(WikidataServerException e) {
+        ErrorResponse respuestaError = new ErrorResponse();
+        respuestaError.getErrores().add(new Error(ErrorCodes.WIKIDATA_SERVER_ERROR, e.getMessage()));
+        return respuestaError;
+    }
 }
