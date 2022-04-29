@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: java -Dserver.port=$PORT -jar target/wikidataApi-1.0-SNAPSHOT.jar
+  web: java -Dserver.port=$PORT -jar target/*.jar
