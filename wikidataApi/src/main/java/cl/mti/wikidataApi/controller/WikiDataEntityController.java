@@ -16,10 +16,10 @@ public class WikiDataEntityController {
     @Autowired
     private WikiDataEntityService service;
 
-    @PostMapping("/load")
-    public ResponseEntity<String> loadFromWikidata(){
+    @PostMapping("")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void loadFromWikidata(){
         service.loadFromWikidata();
-        return ResponseEntity.ok("ok");
     }
 
     @GetMapping("")
@@ -46,9 +46,9 @@ public class WikiDataEntityController {
         service.eliminar(entityId);
     }
 
-    @PostMapping("/load/{EntityId}")
-    public ResponseEntity<String> loadFromWikidata(@PathVariable(value = "EntityId") String entityId){
-        service.loadFromWikidata(entityId);
-        return ResponseEntity.ok("ok");
+    @PostMapping("/{EntityId}/load")
+    public ResponseEntity<LocalEnt> loadFromWikidata(@PathVariable(value = "EntityId") String entityId){
+        LocalEnt localEnt = service.loadFromWikidata(entityId);
+        return ResponseEntity.ok(localEnt);
     }
 }
