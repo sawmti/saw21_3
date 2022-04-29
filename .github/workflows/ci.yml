@@ -37,6 +37,8 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Maven Package
         run: mvn -B package -DskipTests -f wikidataApi/pom.xml
+      - name: directory
+        run: ls -l
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
