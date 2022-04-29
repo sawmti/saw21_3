@@ -52,4 +52,9 @@ public class WikiDataEntityService {
 
         repository.deleteById(entityId);
     }
+
+    public void loadFromWikidata(String entityId) {
+        LocalEnt local = EntityMapper.toLocalEntity(WikidataClient.getEntityFromWikidata(entityId).get(),"es");
+        repository.saveAndFlush(local);
+    }
 }

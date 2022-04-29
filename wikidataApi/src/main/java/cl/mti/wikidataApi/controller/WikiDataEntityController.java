@@ -46,4 +46,9 @@ public class WikiDataEntityController {
         service.eliminar(entityId);
     }
 
+    @PostMapping("/load/{EntityId}")
+    public ResponseEntity<String> loadFromWikidata(@PathVariable(value = "EntityId") String entityId){
+        service.loadFromWikidata(entityId);
+        return ResponseEntity.ok("ok");
+    }
 }
