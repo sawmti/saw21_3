@@ -41,7 +41,7 @@ public class WikiDataEntityController {
     }
 
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    @DeleteMapping("{sucursalId}")
+    @DeleteMapping("{EntityId}")
     public void eliminar(@PathVariable(value = "EntityId") String entityId){
         service.eliminar(entityId);
     }
