@@ -4,6 +4,7 @@ import cl.mti.wikidataApi.model.LocalEnt;
 import cl.mti.wikidataApi.repository.WikidataLocalRepository;
 import cl.mti.wikidataApi.utils.EntityMapper;
 import cl.mti.wikidataApi.utils.WikidataClient;
+import cl.mti.wikidataApi.validation.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,9 @@ public class WikiDataEntityService {
 
     public List<LocalEnt> listar() {
         return repository.findAll();
+    }
+
+    public LocalEnt buscar(String entityId) {
+        return repository.findById(entityId).orElseThrow(() ->new EntityNotFoundException(entityId));
     }
 }

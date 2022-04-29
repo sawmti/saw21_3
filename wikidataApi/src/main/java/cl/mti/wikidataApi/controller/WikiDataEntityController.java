@@ -4,10 +4,7 @@ import cl.mti.wikidataApi.model.LocalEnt;
 import cl.mti.wikidataApi.service.WikiDataEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,12 @@ public class WikiDataEntityController {
     public ResponseEntity<List<LocalEnt>> listar(){
         List<LocalEnt> entidades = service.listar();
         return ResponseEntity.ok(entidades);
+    }
+
+    @GetMapping("/{EntityId}")
+    public ResponseEntity<LocalEnt> buscar(@PathVariable(value = "EntityId") String entityId){
+        LocalEnt sucursal = service.buscar(entityId);
+        return ResponseEntity.ok(sucursal);
     }
 
 }
