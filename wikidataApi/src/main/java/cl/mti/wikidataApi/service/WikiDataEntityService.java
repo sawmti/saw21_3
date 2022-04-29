@@ -25,4 +25,9 @@ public class WikiDataEntityService {
         });
         return true;
     }
+
+
+    public List<LocalEnt> listar() {
+        return repository.findAll();
+    }
 }
