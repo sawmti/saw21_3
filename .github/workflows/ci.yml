@@ -45,7 +45,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          stack: "container"
-#          usedocker: true
+#          stack: "container"
+          usedocker: true
 #          docker_build_args: |
 #            API_URI
