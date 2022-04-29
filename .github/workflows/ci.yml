@@ -7,19 +7,7 @@ on:
     branches: [ java-backend ]
 
 jobs:
-#  build-test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Set up JDK 11
-#        uses: actions/setup-java@v3
-#        with:
-#          java-version: '11'
-#          distribution: 'adopt'
-#      - name: Build with Maven
-#        run: mvn -f wikidataApi/pom.xml --batch-mode --update-snapshots package
-  deploy-webapp:
-#    needs: [build-test]
+  backend-test-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -35,8 +23,8 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Maven Package
-        run: mvn -B package -DskipTests -f wikidataApi/pom.xml
+      - name: Maven test & package
+        run: mvn -B package -f wikidataApi/pom.xml
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
@@ -44,7 +32,4 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           appdir: "wikidataApi"
-#          stack: "container"
           usedocker: true
-#          docker_build_args: |
-#            API_URI
