@@ -14,10 +14,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.14.1
-      - name: node Install
+      - name: Node Install
         run: npm --prefix ./nodeApp ci ./nodeApp
-      - name: node test
-        run: npm test
+      - name: Node test
+        run: npm --prefix ./nodeApp test ./nodeApp
   backend-test-deploy:
     runs-on: ubuntu-latest
     steps:
