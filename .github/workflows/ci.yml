@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: AkhileshNS/heroku-deploy@v3.12.12 # This is the action
+      - uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "frontwikidata1" # Must exist and be unique in Heroku
+          heroku_app_name: ${{secrets.HEROKU_FRONT_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "nodeApp"
           usedocker: true
