@@ -2,11 +2,20 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ java-backend ]
+    branches: [ js-migration ]
   pull_request:
-    branches: [ java-backend ]
+    branches: [ js-migration ]
 
 jobs:
+  node-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.14.1
+      - run: nodeApp/npm ci
+      - run: nodeApp/npm test
   backend-test-deploy:
     runs-on: ubuntu-latest
     steps:
