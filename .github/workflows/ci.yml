@@ -18,12 +18,12 @@ jobs:
         run: npm --prefix ./nodeApp ci ./nodeApp
       - name: Node test
         run: npm --prefix ./nodeApp test ./nodeApp
-  deploy-webapp:
+  node-deploy-webapp:
     needs: [ node-build-test ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
+      - uses: actions/checkout@v3
+      - uses: AkhileshNS/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY_FRONT}}
           heroku_app_name: "saw213" # Must exist and be unique in Heroku
@@ -33,6 +33,7 @@ jobs:
           docker_build_args: |
             API_URI
   backend-test-deploy:
+    needs: [ node-deploy-webapp ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
