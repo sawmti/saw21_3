@@ -2,9 +2,9 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ js-migration ]
+    branches: [ main ]
   pull_request:
-    branches: [ js-migration ]
+    branches: [ main ]
 
 jobs:
   node-build-test:
