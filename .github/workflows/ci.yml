@@ -26,7 +26,7 @@ jobs:
       - uses: AkhileshNS/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "saw213" # Must exist and be unique in Heroku
+          heroku_app_name: "frontwikidata1" # Must exist and be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "nodeApp"
           usedocker: true
