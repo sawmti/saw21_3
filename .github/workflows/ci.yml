@@ -14,9 +14,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.14.1
-      - run: cd nodeApp
-      - run: npm ci
-      - run: npm test
+      - name: node Install
+        run: npm --prefix ./nodeApp ci ./nodeApp
+      - name: node test
+        run: npm test
   backend-test-deploy:
     runs-on: ubuntu-latest
     steps:
