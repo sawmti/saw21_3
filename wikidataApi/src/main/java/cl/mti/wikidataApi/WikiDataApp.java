@@ -1,11 +1,27 @@
-package cl.mti.wikidataApi;
+package cl.lfuentes.icimg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class WikiDataApp {
-    public static void main(String[] args) {
-        SpringApplication.run(WikiDataApp.class, args);
-    }
+public class IcimgApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(IcimgApplication.class, args);
+	}
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("http://localhost:8000")
+						.allowedMethods("*");
+			}
+		};
+	}
+
 }
