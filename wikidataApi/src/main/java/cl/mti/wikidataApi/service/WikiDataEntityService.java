@@ -1,8 +1,10 @@
 package cl.mti.wikidataApi.service;
 
 import cl.mti.wikidataApi.model.LocalEnt;
+import cl.mti.wikidataApi.model.sparql.ItemResponse;
 import cl.mti.wikidataApi.repository.WikidataLocalRepository;
 import cl.mti.wikidataApi.utils.EntityMapper;
+import cl.mti.wikidataApi.utils.UriConverter;
 import cl.mti.wikidataApi.utils.WikidataClient;
 import cl.mti.wikidataApi.validation.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,10 @@ public class WikiDataEntityService {
 
     public Boolean loadFromWikidata(){
         // TODO should use dynamic list?
-        List<String> list = Arrays.asList("Q84263196","Q87775025","Q97154240","Q97154233","Q98270627");
+        //List<String> list = Arrays.asList("Q84263196","Q87775025","Q97154240","Q97154233","Q98270627");
+        List<ItemResponse> list = WikidataClient.getCovidVaccines().get();
         list.forEach( strEntity -> {
-             LocalEnt local = EntityMapper.toLocalEntity(WikidataClient.getEntityFromWikidata(strEntity).get(),"es");
+             LocalEnt local = EntityMapper.toLocalEntity(WikidataClient.getEntityFromWikidata(UriConverter.getEntityFromUri(strEntity.getItem().getValue())).get(),"es");
              repository.saveAndFlush(local);
         });
         return true;
