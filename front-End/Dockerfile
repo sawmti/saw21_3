@@ -1,5 +1,8 @@
-FROM node:12.14.1
-WORKDIR /usr/src/app
-COPY . ./
-RUN npm install --production
-CMD [ "node", "server.js" ]
+FROM node:alpine
+RUN mkdir /app
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+EXPOSE 8000
+CMD ["npm", "start"]
