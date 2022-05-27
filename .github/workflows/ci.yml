@@ -2,9 +2,9 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ main ]
+    branches: [ cicd-front ]
   pull_request:
-    branches: [ main ]
+    branches: [ cicd-front ]
 
 jobs:
   node-build-test:
@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: 12.14.1
       - name: Node Install
-        run: npm --prefix ./nodeApp ci ./nodeApp
+        run: npm --prefix ./front-End ci ./front-End
       - name: Node test
-        run: npm --prefix ./nodeApp test ./nodeApp
+        run: npm --prefix ./front-End test ./front-End
   node-deploy-webapp:
     needs: [ node-build-test ]
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_FRONT_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          appdir: "nodeApp"
+          appdir: "front-End"
           usedocker: true
           docker_build_args: |
             API_URI
