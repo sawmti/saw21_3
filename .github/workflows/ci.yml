@@ -30,8 +30,6 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: "front-End"
           usedocker: true
-          docker_build_args: |
-            API_URI
   backend-test-deploy:
     needs: [ node-deploy-webapp ]
     runs-on: ubuntu-latest
