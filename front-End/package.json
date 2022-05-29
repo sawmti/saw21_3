@@ -6,9 +6,11 @@
         "url": "https://github.com/cornflourblue/react-hook-form-crud-example.git"
     },
     "license": "MIT",
+    "name"	 : "frontApp",
+    "config" : { "port" : "8000" },
     "scripts": {
         "build": "webpack --mode production",
-        "start": "webpack-dev-server --port 8000"
+        "start": "webpack-dev-server --port $npm_package_config_port"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
