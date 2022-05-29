@@ -7,10 +7,9 @@
     },
     "license": "MIT",
     "name"	 : "frontApp",
-    "config" : { "port" : "8000" },
     "scripts": {
         "build": "webpack --mode production",
-        "start": "webpack-dev-server --port $npm_package_config_port"
+        "start": "webpack-dev-server"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
