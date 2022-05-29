@@ -3,6 +3,9 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
+    devServer: {
+      allowedHosts: "all"
+    },
     module: {
         rules: [
             {
