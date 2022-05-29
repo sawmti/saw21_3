@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     devServer: {
-      allowedHosts: 'all,
+      allowedHosts: 'all',
       clientLogLevel: 'info',
       compress: true,
       disableHostCheck: true,
