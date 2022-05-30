@@ -1,4 +1,4 @@
-# Sistemas y Aplicaciones Web
+# :school: Sistemas y Aplicaciones Web :school:
 ## Ejercicio 1: Grupo 3
 _Aplicación que interactúa con wikidata_
 
@@ -6,7 +6,7 @@ La app está compuesta por un backend construido con Springboot y un frontend co
 
 Funcionalmente hablando, la app obtiene las entidades relacionas (_"vacuna para"_) a la entidad Covid-19 (_"Q84263196"_) mediante una query de Sparql al cargar por primera vez (con un límite de 4 entidades), estas son almacenadas en una base de datos H2, la cual corre en memoria, sobre esta es posible realizar un CRUD. El "create" requiere de un código de entidad, con el cual se consulta wikidata para traer el resto de la información.   
 
-## Autores 
+## Autores :mortar_board::wrench:
 * Katherine Gaete
 * Mario Colihueque
 * Luis Montanares
