@@ -38,10 +38,11 @@ module.exports = {
     })],
     devServer: {
         historyApiFallback: true,
+        client: {
+              logging: 'info',
+            },
         allowedHosts: 'all',
-        clientLogLevel: 'info',
         compress: true,
-        disableHostCheck: true,
         host:'frontwikidata1.herokuapp.com'
     },
     externals: {
