@@ -24,10 +24,6 @@ public class WikiDataEntityService {
     private WikidataLocalRepository repository;
 
     @EventListener(ApplicationReadyEvent.class)
-    public void doSomethingAfterStartup() {
-        System.out.println("hello world, I have just started up");
-    }
-
     public Boolean loadFromWikidata(){
         List<ItemResponse> list = WikidataClient.getCovidVaccines().get();
         list.forEach( strEntity -> {
