@@ -2,9 +2,9 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ cicd-front ]
+    branches: [ main ]
   pull_request:
-    branches: [ cicd-front ]
+    branches: [ main ]
 
 jobs:
   node-build-test:
