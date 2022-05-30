@@ -1,7 +1,6 @@
 import config from 'config';
 import { fetchWrapper } from '@/_helpers';
 
-//const baseUrl = `${config.apiUrl}/area`;
 const baseUrl = 'https://apiwikidata1.herokuapp.com/WikiDataEntities';
 
 export const entidadService = {

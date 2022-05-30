@@ -16,10 +16,10 @@ function Navi() {
         <Nav className="navbar navbar-expand navbar-dark bg-dark" variant="pills">
             <div className="navbar-nav">
                 <NavLink exact to="/" className="nav-link">Home</NavLink>
-                <NavDropdown title="Parametrización" id="nav-dropdown">
-                    <NavDropdown.Item as={NavLink} to="/users">Usuarios</NavDropdown.Item>
+{/*                 <NavDropdown title="Parametrización" id="nav-dropdown"> */}
+{/*                     <NavDropdown.Item as={NavLink} to="/users">Usuarios</NavDropdown.Item> */}
                 </NavDropdown>
-                <NavLink to="/entidad" className="nav-item nav-link">Entidades Wikidata</NavLink> 
+                <NavLink to="/entidad" className="nav-item nav-link">Vacunas</NavLink>
                 <button className="btn btn-link" type="button" style={{ color: 'red' }} onClick={() => handleLogout()} > <FontAwesomeIcon icon={faSignOutAlt} /> </button>
             </div>
         </Nav>
