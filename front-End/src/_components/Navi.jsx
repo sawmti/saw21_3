@@ -18,7 +18,7 @@ function Navi() {
                 <NavLink exact to="/" className="nav-link">Home</NavLink>
 {/*                 <NavDropdown title="Parametrización" id="nav-dropdown"> */}
 {/*                     <NavDropdown.Item as={NavLink} to="/users">Usuarios</NavDropdown.Item> */}
-                </NavDropdown>
+{/*                 </NavDropdown>*/}
                 <NavLink to="/entidad" className="nav-item nav-link">Vacunas</NavLink>
                 <button className="btn btn-link" type="button" style={{ color: 'red' }} onClick={() => handleLogout()} > <FontAwesomeIcon icon={faSignOutAlt} /> </button>
             </div>
