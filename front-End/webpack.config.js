@@ -4,11 +4,7 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     devServer: {
-      allowedHosts: 'all',
-      clientLogLevel: 'info',
-      compress: true,
-      disableHostCheck: true,
-      host:'frontwikidata1.herokuapp.com'
+
     },
     module: {
         rules: [
@@ -41,7 +37,12 @@ module.exports = {
         template: './src/index.html'
     })],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        allowedHosts: 'all',
+        clientLogLevel: 'info',
+        compress: true,
+        disableHostCheck: true,
+        host:'frontwikidata1.herokuapp.com'
     },
     externals: {
         // global app config object
