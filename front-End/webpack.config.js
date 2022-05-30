@@ -43,7 +43,7 @@ module.exports = {
             },
         allowedHosts: 'all',
         compress: true,
-        host:'frontwikidata1.herokuapp.com'
+        host: '0.0.0.0'
     },
     externals: {
         // global app config object
