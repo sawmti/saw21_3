@@ -2,9 +2,9 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ main ]
+    branches: [ sparql ]
   pull_request:
-    branches: [ main ]
+    branches: [ sparql ]
 
 jobs:
   node-build-test:

@@ -8,6 +8,8 @@ import cl.mti.wikidataApi.utils.UriConverter;
 import cl.mti.wikidataApi.utils.WikidataClient;
 import cl.mti.wikidataApi.validation.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,9 +23,12 @@ public class WikiDataEntityService {
     @Autowired
     private WikidataLocalRepository repository;
 
+    @EventListener(ApplicationReadyEvent.class)
+    public void doSomethingAfterStartup() {
+        System.out.println("hello world, I have just started up");
+    }
+
     public Boolean loadFromWikidata(){
-        // TODO should use dynamic list?
-        //List<String> list = Arrays.asList("Q84263196","Q87775025","Q97154240","Q97154233","Q98270627");
         List<ItemResponse> list = WikidataClient.getCovidVaccines().get();
         list.forEach( strEntity -> {
              LocalEnt local = EntityMapper.toLocalEntity(WikidataClient.getEntityFromWikidata(UriConverter.getEntityFromUri(strEntity.getItem().getValue())).get(),"es");
