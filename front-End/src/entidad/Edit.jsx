@@ -55,7 +55,7 @@ function EntidadEdit({ history, match }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Agregar protocolo' : 'Editar protocolo'}</h1>
+            <h1>{isAddMode ? 'Agregar Entidad' : 'Editar Entidad'}</h1>
             <div className="form-row">
 
                 <div className="form-group col-3">
