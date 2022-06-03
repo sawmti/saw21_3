@@ -1,12 +1,11 @@
 {
-    "name": "react-hook-form-crud-example",
+    "name": "frontApp",
     "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/cornflourblue/react-hook-form-crud-example.git"
     },
     "license": "MIT",
-    "name"	 : "frontApp",
     "scripts": {
         "build": "webpack --mode production",
         "start": "webpack-dev-server"
@@ -24,6 +23,7 @@
         "react": "^16.13.1",
         "react-bootstrap": "^1.5.2",
         "react-datepicker": "^3.7.0",
+        "react-device-detect": "^2.2.2",
         "react-dom": "^16.13.1",
         "react-hook-form": "^6.9.2",
         "react-router-dom": "^5.1.2",

@@ -56,17 +56,17 @@ function EntidadEdit({ history, match }) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
             <h1>{isAddMode ? 'Agregar Entidad' : 'Editar Entidad'}</h1>
-            <div className="form-row">
+            <div className="form-row" itemScope itemType="http://schema.org/Thing">
 
                 <div className="form-group col-3">
                     <label>Id</label>
-                    <input name="id" type="text" ref={register} className={`form-control ${errors.id ? 'is-invalid' : ''}`} readOnly />
+                    <input name="id" type="text" ref={register} className={`form-control ${errors.id ? 'is-invalid' : ''}` } itemProp="identifier" readOnly />
                     <div className="invalid-feedback">{errors.id?.message}</div>
                 </div>
 
                 <div className="form-group col-9">
                     <label>Descripción</label>
-                    <input name="description" type="text" ref={register} className={`form-control ${errors.description ? 'is-invalid' : ''}`} />
+                    <input name="description" type="text" ref={register} className={`form-control ${errors.description ? 'is-invalid' : ''}`} itemProp="description" />
                     <div className="invalid-feedback">{errors.description?.message}</div>
                 </div>
                 

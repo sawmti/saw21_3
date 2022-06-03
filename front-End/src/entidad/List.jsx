@@ -58,6 +58,7 @@ function EntidadList({ match }) {
                             <td>{ent.modified}</td>
                             <td>{ent.updatedDate}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
+                                <Link to={`${path}/${ent.id}`} className="btn btn-sm btn-info mr-1">Ver</Link>
                                 <Link to={`${path}/edit/${ent.id}`} className="btn btn-sm btn-primary mr-1">Editar</Link>
                                 <button onClick={() => _delete(ent.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={ent.isDeleting}>
                                     {ent.isDeleting

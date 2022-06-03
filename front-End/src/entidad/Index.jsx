@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { EntidadList } from './List';
 import { EntidadAdd } from './Add';
 import { EntidadEdit } from './Edit';
+import { EntidadView } from './View';
 
 function Entidad({ match }) {
     const { path } = match;
@@ -13,6 +14,7 @@ function Entidad({ match }) {
             <Route exact path={path} component={EntidadList} />
             <Route path={`${path}/add`} component={EntidadAdd} />
             <Route path={`${path}/edit/:id`} component={EntidadEdit} />
+            <Route path={`${path}/:id`} component={EntidadView} />
         </Switch>
     );
 }
