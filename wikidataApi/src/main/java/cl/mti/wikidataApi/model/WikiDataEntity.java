@@ -17,4 +17,6 @@ public class WikiDataEntity {
     private String modified;
     private String type;
     private Map<String, WikiDataLanguajeValue> descriptions;
+    private Map<String, WikiDataLanguajeValue> labels;
+    private Map<String, WikiDataSiteUrl> sitelinks;
 }

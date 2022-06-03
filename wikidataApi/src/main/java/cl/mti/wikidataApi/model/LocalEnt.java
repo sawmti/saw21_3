@@ -19,4 +19,6 @@ public class LocalEnt {
     private String modified;
     private String description;
     private String updatedDate;
+    private String uri;
+    private String label;
 }
