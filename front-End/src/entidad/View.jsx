@@ -33,14 +33,14 @@ function EntidadView({ history, match }) {
             <h1>Vacuna ({entidad.id}) </h1>
             <div className="form-row">
 
-                <div className="form-group col-3" itemProp="identifier">
+                <div className="form-group col-3" >
                     <label><strong>Id :</strong>&emsp;</label>
-                    <span>{entidad.id}</span>
+                    <span itemProp="identifier">{entidad.id}</span>
                 </div>
 
-                <div className="form-group col-9" itemProp="description">
+                <div className="form-group col-9" >
                     <label><strong>Descripción :</strong>&emsp;</label>
-                    <span>{entidad.description}</span>
+                    <span itemProp="description">{entidad.description}</span>
                 </div>
 
             </div>
