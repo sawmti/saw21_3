@@ -19,7 +19,7 @@ class WikiDataEntityServiceTest {
     @Mock
     private WikidataLocalRepository repository;
 
-    private final LocalEnt mockLocalEntity = new LocalEnt("Q0001","2022-01-01T00:00:00Z","test","2022-01-02T00:00:00Z");
+    private final LocalEnt mockLocalEntity = new LocalEnt("Q0001","2022-01-01T00:00:00Z","test","2022-01-02T00:00:00Z","http://url.sitio.com/q0001","test");
 
     @Test
     void load(){
