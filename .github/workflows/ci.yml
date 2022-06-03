@@ -2,9 +2,9 @@ name: Continuous integration for SAW template
 
 on:
   push:
-    branches: [ main ]
+    branches: [ microdatos ]
   pull_request:
-    branches: [ main ]
+    branches: [ microdatos ]
 
 jobs:
   node-build-test:
