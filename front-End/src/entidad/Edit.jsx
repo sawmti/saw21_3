@@ -59,7 +59,7 @@ function EntidadEdit({ history, match }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-            <h1>{isAddMode ? 'Agregar Entidad' : 'Editar Entidad'}</h1>
+            <h1>{isAddMode ? 'Agregar' : 'Editar '+entidad.label}</h1>
 
             <div itemScope itemType="http://schema.org/Thing">
                 <div className="form-row" >
