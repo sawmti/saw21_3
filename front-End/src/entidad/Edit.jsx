@@ -15,6 +15,10 @@ function EntidadEdit({ history, match }) {
     const validationSchema = Yup.object().shape({
         id: Yup.string()
             .required('Id es obligatorio'),
+        label: Yup.string()
+            .required('Etiqueta es obligatorio'),
+        uri: Yup.string()
+            .required('Url es obligatorio'),
         description: Yup.string()
             .required('Descripción es obligatoria'),
         modified: Yup.string()
@@ -45,7 +49,7 @@ function EntidadEdit({ history, match }) {
 
         if (!isAddMode) {
             entidadService.getById(id).then(entidad => {
-                const fields = ['id', 'description', 'modified', 'updatedDate'];
+                const fields = ['id', 'description', 'modified', 'updatedDate','uri','label'];
                 fields.forEach(field => setValue(field, entidad[field]));
 
                 setEntidad(entidad);
@@ -56,32 +60,47 @@ function EntidadEdit({ history, match }) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
             <h1>{isAddMode ? 'Agregar Entidad' : 'Editar Entidad'}</h1>
-            <div className="form-row" itemScope itemType="http://schema.org/Thing">
 
-                <div className="form-group col-3">
-                    <label>Id</label>
-                    <input name="id" type="text" ref={register} className={`form-control ${errors.id ? 'is-invalid' : ''}` } itemProp="identifier" readOnly />
-                    <div className="invalid-feedback">{errors.id?.message}</div>
+            <div itemScope itemType="http://schema.org/Thing">
+                <div className="form-row" >
+
+                    <div className="form-group col-3">
+                        <label>Id</label>
+                        <input name="id" type="text" ref={register} className={`form-control ${errors.id ? 'is-invalid' : ''}`} itemProp="identifier" readOnly />
+                        <div className="invalid-feedback">{errors.id?.message}</div>
+                    </div>
+                    <div className="form-group col-3">
+                        <label>Etiqueta</label>
+                        <input name="label" type="text" ref={register} className={`form-control ${errors.label ? 'is-invalid' : ''}`} itemProp="name" />
+                        <div className="invalid-feedback">{errors.label?.message}</div>
+                    </div>
+
+                    <div className="form-group col-6">
+                        <label>Descripción</label>
+                        <input name="description" type="text" ref={register} className={`form-control ${errors.description ? 'is-invalid' : ''}`} itemProp="description" />
+                        <div className="invalid-feedback">{errors.description?.message}</div>
+                    </div>
+
+                </div>
+                <div className="form-row" >
+                <div className="form-group col-12">
+                        <label>Url</label>
+                        <input name="uri" type="text" ref={register} className={`form-control ${errors.uri ? 'is-invalid' : ''}`} itemProp="url" />
+                        <div className="invalid-feedback">{errors.uri?.message}</div>
+                    </div>
                 </div>
 
-                <div className="form-group col-9">
-                    <label>Descripción</label>
-                    <input name="description" type="text" ref={register} className={`form-control ${errors.description ? 'is-invalid' : ''}`} itemProp="description" />
-                    <div className="invalid-feedback">{errors.description?.message}</div>
-                </div>
-                
-            </div>
-        
-            <div className="form-row">
-            <div className="form-group col-3">
-                    <label>Fecha Wikidata</label>
-                    <input name="modified" type="text" ref={register} className={`form-control ${errors.modified ? 'is-invalid' : ''}`} readOnly />
-                    <div className="invalid-feedback">{errors.modified?.message}</div>
-                </div>
-                <div className="form-group col-3">
-                    <label>Última actualización local</label>
-                    <input name="updatedDate" type="text" ref={register} className={`form-control ${errors.updatedDate ? 'is-invalid' : ''}`} readOnly />
-                    <div className="invalid-feedback">{errors.updatedDate?.message}</div>
+                <div className="form-row">
+                    <div className="form-group col-3">
+                        <label>Fecha Wikidata</label>
+                        <input name="modified" type="text" ref={register} className={`form-control ${errors.modified ? 'is-invalid' : ''}`} readOnly />
+                        <div className="invalid-feedback">{errors.modified?.message}</div>
+                    </div>
+                    <div className="form-group col-3">
+                        <label>Última actualización local</label>
+                        <input name="updatedDate" type="text" ref={register} className={`form-control ${errors.updatedDate ? 'is-invalid' : ''}`} readOnly />
+                        <div className="invalid-feedback">{errors.updatedDate?.message}</div>
+                    </div>
                 </div>
             </div>
             <div className="form-group">
