@@ -44,7 +44,7 @@ function EntidadList({ match }) {
                 <thead>
                     <tr>
                         <th style={{ width: '10%' }}>Id</th>
-                        <th style={{ width: '40%' }}>Descripción</th>
+                        <th style={{ width: '40%' }}>Etiqueta</th>
                         <th style={{ width: '20%' }}>Fecha WikiData</th>
                         <th style={{ width: '20%' }}>Fecha Local</th>
                         <th style={{ width: '10%' }}></th>
@@ -54,7 +54,7 @@ function EntidadList({ match }) {
                     {entidades && entidades.map(ent =>
                         <tr key={ent.id}>
                             <td>{ent.id}</td>
-                            <td>{ent.description}</td>
+                            <td>{ent.label}</td>
                             <td>{ent.modified}</td>
                             <td>{ent.updatedDate}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>

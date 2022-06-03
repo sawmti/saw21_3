@@ -30,9 +30,8 @@ function EntidadView({ history, match }) {
     return (
         <div itemScope itemType="http://schema.org/Thing" >
             {console.log(`${browserName} ${browserVersion}`)}
-            <h1>Vacuna ({entidad.id}) </h1>
+            <span itemProp="name"> <h1>{entidad.label} </h1></span>
             <div className="form-row">
-
                 <div className="form-group col-3" >
                     <label><strong>Id :</strong>&emsp;</label>
                     <span itemProp="identifier">{entidad.id}</span>
@@ -43,6 +42,12 @@ function EntidadView({ history, match }) {
                     <span itemProp="description">{entidad.description}</span>
                 </div>
 
+            </div>
+            <div className="form-row">
+                <div className="form-group col-12" >
+                    <label><strong>Url :</strong>&emsp;</label>
+                    <span itemProp="url"><a href={entidad.uri} target="_blank">{entidad.uri}</a></span>
+                </div>
             </div>
             <div className="form-row">
                 <div className="form-group col-6" >
